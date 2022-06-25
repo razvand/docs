@@ -392,7 +392,7 @@ Save the configuration and exit.
 Do a quick check of the configuration in `.config` by pitting it against the `config.sol` file in the reference solution:
 
 ```
-$ diff -u .config ../../sol/02-adding-filesytstems/config.sol
+$ diff -u .config ../../sol/02-adding-filesystems/config.sol
 ```
 
 Differences should be minimal, such as the application identifier.
