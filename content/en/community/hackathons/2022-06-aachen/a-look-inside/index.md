@@ -139,15 +139,16 @@ During the build process, all the `Makefile.uk` files (from the Unikraft core an
 
 ### Support Files
 
-Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-05-lyon).
+Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-06-aachen).
 The repository is already cloned in the virtual machine.
+The session directory is `~/docs/content/en/community/hackathons/2022-06-aachen/a-look-inside/`.
 
 If you want to clone the repository yourself, do
 
 ```
 $ git clone https://github.com/unikraft/docs
 
-$ cd docs/content/en/community/hackathons/2022-06-aache/a-look-inside/
+$ cd docs/content/en/community/hackathons/2022-06-aachen/a-look-inside/
 
 $ ls
 images/  index.md  sol/  work/
@@ -318,7 +319,7 @@ We will use both the manual approach (`make` and `qemu-system-x86_64` / `qemu-gu
 
 #### Setup
 
-The basic setup is in the `work/02-adding-filesystems/` folder in the session directory.
+The basic setup is in the `work/02-adding-filesystems/` folder in the session directory (`~/docs/content/en/community/hackathons/2022-06-aachen/a-look-inside/`).
 Enter that folder:
 
 ```
@@ -340,7 +341,7 @@ The program (`main.c`) reads the contents of the `/grass` file and prints it to 
 Similarly, `qemu-guest` is a wrapper script [used internally by `kraft`](https://github.com/unikraft/kraft/blob/staging/scripts/qemu-guest).
 We'll use it as well to run the application.
 
-**If, at any point of this tutorial, something doesn't work, or you want a quick check, see the reference solution in `sol/02-adding-filesystems/` folder in the session directory.**
+**If, at any point of this tutorial, something doesn't work, or you want a quick check, see the reference solution in `sol/02-adding-filesystems/` folder in the session directory (`~/docs/content/en/community/hackathons/2022-06-aachen/a-look-inside/`).**
 
 ### Using the Manual Approach
 
