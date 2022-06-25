@@ -7,8 +7,6 @@ summary: "We take a look inside Unikraft internals - its build system and runtim
 
 ## Inside the Config and Build System
 
-_The presentation of this session can be found [here](/community/hackathons/2022-05-lyon/a-look-inside/slides.pdf)._
-
 For this session, the following tools are needed: `qemu-kvm`, `qemu-system-x86_64`, `qemu-system-aarch64`, `gcc-aarch64-linux-gnu`.
 To install on Debian/Ubuntu use the following command
 
@@ -149,7 +147,7 @@ If you want to clone the repository yourself, do
 ```
 $ git clone https://github.com/unikraft/docs
 
-$ cd docs/content/en/community/hackathons/2022-05-lyon/a-look-inside/
+$ cd docs/content/en/community/hackathons/2022-06-aache/a-look-inside/
 
 $ ls
 images/  index.md  sol/  work/
@@ -159,17 +157,17 @@ images/  index.md  sol/  work/
 
 We want to build the `helloworld` application, using the Kconfig-based system, for the **linuxu** and **KVM** platforms, for the **ARM** and **x86** architectures, and then run them.
 
-The `unikraft` and `app-helloworld` repsitories are already created in the virtual machine, in the `a-look-inside/` folder, in a typical development hierarchy:
+The `unikraft` and `app-helloworld` repsitories are already created in the virtual machine, in the `workdir/` folder, in a typical development hierarchy:
 
 ```
-a-look-inside/
+workdir/
 `-- apps/
-|   `-- helloworld/
+|   `-- app-helloworld/
 |-- libs/
 `-- unikraft/
 ```
 
-See the `UK_ROOT` and `UK_LIBS` in the `apps/helloworld/Makefile`, pointing to the `unikraft` repository and the library folder:
+See the `UK_ROOT` and `UK_LIBS` in the `apps/app-helloworld/Makefile`, pointing to the `unikraft` repository and the library folder:
 
 ```
 UK_ROOT ?= $(PWD)/../../unikraft
@@ -182,10 +180,10 @@ First, we will build the image for the **linuxu** platform.
 As the resulting image will be an ELF, we can only run the **x86** Unikraft image.
 We follow the steps:
 
-1. Enter the `helloworld` folder:
+1. Enter the `app-helloworld` folder:
 
    ```
-   $ cd apps/helloworld
+   $ cd ~/workdir/apps/app-helloworld
    ```
 
 1. Clean up all configuration and build files:
@@ -221,10 +219,10 @@ Next, we will build the image for the **kvm** platform.
 Before starting the process, make sure that you have the necessary tools, listed in the [Required Tools](/a-look-inside/#required-tools) section.
 We follow the steps:
 
-1. Enter the `helloworld` folder:
+1. Enter the `app-helloworld` folder:
 
    ```
-   $ cd apps/helloworld
+   $ cd ~/workdir/apps/app-helloworld
    ```
 
 1. Clean up all configuration and build files:
@@ -272,10 +270,10 @@ $ sudo qemu-system-x86_64 -enable-kvm -cpu host -kernel ./build/helloworld_kvm-x
 
 To configure Unikraft for the ARM architecture, follow the steps:
 
-1. Enter the `helloworld` folder:
+1. Enter the `app-helloworld` folder:
 
    ```
-   $ cd apps/helloworld
+   $ cd ~/workdir/apps/app-helloworld
    ```
 
 1. Clean up all configuration and build files:
@@ -359,7 +357,7 @@ LIBS := $(UK_LIBS)/newlib
 ```
 
 Update the `UK_ROOT` and `UK_LIBS` variables in the `Makefile` to point to the folders storing the Unikraft and libraries repositories.
-You can use the folders in `~/a-look-inside/`,
+You can use the folders in `~/workdir/`,
 
 **Make sure that both `unikraft` and `newlib` repositories are on the `staging` branch.**
 Go to each of the two repository folders (`unikraft` and `newlib`) and check the current branch:
@@ -485,10 +483,10 @@ It could only be run by manually using `qemu-system-x86_64` with the correspondi
 With kraft, the whole process of configuring, building and running Unikraft can be made easier.
 
 By default, kraft uses the `~/.unikraft/` folder where all the repositories are cloned.
-As we want to use the repositories in `~/a-look-inside/`, we fill the `UK_WORKDIR` variable:
+As we want to use the repositories in `~/workdir/`, we fill the `UK_WORKDIR` variable:
 
 ```
-$ export UK_WORKDIR=~/a-look-inside/
+$ export UK_WORKDIR=~/workdir/
 ```
 
 And clean up the build workplace:
@@ -586,7 +584,7 @@ We also want to identify which hardware components are initialized for both x86 
 Go to the `helloworld/` application folder:
 
 ```
-$ cd ~/a-look-inside/apps/helloworld/
+$ cd ~/workdir/apps/helloworld/
 ```
 
 #### x86_64
