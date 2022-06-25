@@ -1,13 +1,11 @@
 ---
 title: Debugging in Unikraft
-date: 2022-05-13T19:27:37+10:00
+date: 2022-06-25T19:27:37+10:00
 weight: 4
 summary: "We discuss about using GDB to debug Unikraft. Expected time: 75min."
 ---
 
 ## Debugging in Unikraft
-
-_The slides for this session can be found [here](/community/hackathons/2022-05-lyon/debugging/slides.pdf)._
 
 Because unikernels aim to be a more efficient method of virtualization, this can sometimes cause problems.
 This session aims to familiarize you to solve any problem encountered during the development using **GDB**.
@@ -32,15 +30,16 @@ Below you can see a list of the commands you have used so far.
 
 ## Support Files
 
-Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-05-lyon).
+Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-06-aachen).
 The repository is already cloned in the virtual machine.
+The session directory is `~/docs/content/en/community/hackathons/2022-06-aachen/debugging/`.
 
 If you want to clone the repository yourself, do
 
 ```
 $ git clone https://github.com/unikraft/docs
 
-$ cd docs/content/en/community/hackathons/2022-05-lyon/debugging/
+$ cd docs/content/en/community/hackathons/2022-06-aachen/debugging/
 
 $ ls
 demo/  images/  index.md  sol/  work/
@@ -156,15 +155,16 @@ You can now run `continue` and debug as you would normally.
 
 ### Support Files
 
-Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-05-lyon).
+Session support files are available [in the repository](https://github.com/unikraft/docs/tree/main/content/en/community/hackathons/2022-06-aachen).
 The repository is already cloned in the virtual machine.
+The session directory is `~/docs/content/en/community/hackathons/2022-06-aachen/debugging/`.
 
 If you want to clone the repository yourself, do
 
 ```
 $ git clone https://github.com/unikraft/docs
 
-$ cd docs/content/en/community/hackathons/2022-05-lyon/debugging/
+$ cd docs/content/en/community/hackathons/2022-06-aachen/debugging/
 
 $ ls
 demo/  images/  index.md  sol/  work/
@@ -188,11 +188,11 @@ For this tutorial, we will just start the `app-helloworld` application and inspe
 First make sure you have the following file structure in your working directory:
 
 ```
-workdir
-|-- apps
-|   `-- helloworld
-|-- libs
-`-- unikraft
+workdir/
+|-- apps/
+|   `-- app-helloworld/
+|-- libs/
+`-- unikraft/
 ```
 
 #### Linuxu
