@@ -207,11 +207,11 @@ We follow the steps:
       $ make
       ```
 
-1. The resulting image, `helloworld_linuxu-x86_64` is located in the `build/` folder.
+1. The resulting image, `app-helloworld_linuxu-x86_64` is located in the `build/` folder.
    Run it directly, as a Linux executable:
 
    ```
-   $ ./build/helloworld_linuxu-x86_64
+   $ ./build/app-helloworld_linuxu-x86_64
    ```
 
 #### KVM, x86_64
@@ -264,7 +264,7 @@ You can instruct KVM to use your local CPU model, by adding `-cpu host` to the c
 The final command will look like this:
 
 ```
-$ sudo qemu-system-x86_64 -enable-kvm -cpu host -kernel ./build/helloworld_kvm-x86_64 -nographic
+$ sudo qemu-system-x86_64 -enable-kvm -cpu host -kernel ./build/app-helloworld_kvm-x86_64 -nographic
 ```
 
 #### KVM, ARM
@@ -300,7 +300,7 @@ To configure Unikraft for the ARM architecture, follow the steps:
 1. Load the resulting image in QEMU by using
 
    ```
-   $ sudo qemu-system-aarch64 -machine virt -cpu cortex-a57 -kernel ./build/helloworld_kvm-arm64 -nographic
+   $ sudo qemu-system-aarch64 -machine virt -cpu cortex-a57 -kernel ./build/app-helloworld_kvm-arm64 -nographic
    ```
 
 Note that now we need to provide a machine and a CPU model to be emulated, as there are no defaults available.
@@ -582,10 +582,10 @@ You can use the fix described in the issue (and the [corresponding pull request]
 
 The goal of this exercise is to enable the internal debugging library for Unikraft (`ukdebug`) and make it display messages up to the *info* level.
 We also want to identify which hardware components are initialized for both x86 and ARM, and where.
-Go to the `helloworld/` application folder:
+Go to the `app-helloworld/` application folder:
 
 ```
-$ cd ~/workdir/apps/helloworld/
+$ cd ~/workdir/apps/app-helloworld/
 ```
 
 #### x86_64
